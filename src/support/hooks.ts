@@ -19,7 +19,12 @@ Before(async function (this: CustomWorld) {
   this.page = await this.context.newPage();
 });
 
-After(async function (this: CustomWorld) {
-  await this.page?.close();
+After(async function (this: CustomWorld, scenario) {
+  if (this.page) {
+    // Tomar screenshot al final de cada caso de prueba como evidencia
+    const screenshot = await this.page.screenshot();
+    this.attach(screenshot, 'image/png');
+    await this.page.close();
+  }
   await this.context?.close();
 });
