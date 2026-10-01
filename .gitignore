@@ -1,0 +1,23 @@
+# Dependencias
+node_modules/
+
+# TypeScript
+dist/
+build/
+
+# Reportes y resultados de pruebas
+reports/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Archivos del sistema y logs
+.DS_Store
+*.log
+npm-debug.log*
+
+# Variables de entorno
+.env
+.env.test
+.env.local
